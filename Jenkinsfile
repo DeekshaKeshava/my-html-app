@@ -4,25 +4,13 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/your-username/html-app.git'
+                git branch: 'main', url: 'https://github.com/DeekshaKeshava/my-html-app.git'
             }
         }
 
-        stage('Build') {
+        stage('Run Server') {
             steps {
-                echo 'No build needed for HTML'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'No tests yet'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying HTML app...'
+                bat 'start cmd /c python -m http.server 8081'
             }
         }
     }
